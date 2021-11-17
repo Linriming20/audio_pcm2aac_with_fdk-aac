@@ -218,8 +218,8 @@ int main(int argc, char *argv[])
 			goto error_exit3;
 		}
 
-		DEBUG("IN(pcm): [buf bytes: %4d] [sample cnt: %4d]  ==>   OUT(aac): [encode out bytes: %4d] \n",
-			  s32ReadPcmBytes, inArgs.numInSamples, outArgs.numOutBytes);
+		DEBUG("IN(pcm): [buf bytes: %4d] [channels: %d] [sample cnt per channel: %4d]  ==>   OUT(aac): [encode out bytes: %4d] \n",
+			  s32ReadPcmBytes, u32PcmChannels, inArgs.numInSamples/u32PcmChannels, outArgs.numOutBytes);
 
 		if(outArgs.numOutBytes == 0)
 		{
