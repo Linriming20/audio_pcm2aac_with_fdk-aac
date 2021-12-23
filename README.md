@@ -1,12 +1,27 @@
 
 ### 1. 编译
 
-本demo是使用的开源项目fdk-aac（[源码下载地址](https://github.com/mstorsjo/fdk-aac)）将PCM数据编码成aac音频文件。由于库文件是在x86\_64架构的主机上面编译生成的，所以仅支持该环境的编译运行，其他CPU架构的可以去访问上面的链接去下载编译。
+**a. 编译demo**
+
+本demo是使用的开源项目fdk-aac将PCM数据编码成aac音频文件。由于提供的.a静态库是在x86_64的机器上编译的，所以默认情况下仅支持该架构的主机上编译运行。
 
 ```bash
 $ make
 ```
 
+**b. 编译fdk-aac（可选）**
+
+如果想要在其他架构的CPU上编译运行，可以使用以下命令（脚本）编译`fdk-aac`[[下载地址1]](https://github.com/mstorsjo/fdk-aac)[[下载地址2]](https://sourceforge.net/projects/opencore-amr/files/)得到相应的库文件进行替换：
+
+```bash
+#!/bin/bash
+
+tar xzf fdk-aac-2.0.2.tar.gz
+cd fdk-aac-2.0.2/
+./configure --prefix=$PWD/_install # --host=arm-linux-gnueabihf CC=arm-linux-gnueabihf-gcc
+make -j96
+make install
+```
 
 ### 2. 使用
 

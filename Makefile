@@ -9,6 +9,6 @@ $(TRAGET) : main.c lib/libfdk-aac.a
 	$(CC) $^ $(CFLAG) -o $@
 
 clean : 
-	rm -rf $(TRAGET)
+	rm -rf $(TRAGET) *.aac
 .PHONY := clean
 
